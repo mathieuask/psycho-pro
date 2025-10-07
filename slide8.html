@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .slide-container {
+        max-width: 1280px;
+        min-height: 100vh;
+        margin: 0 auto;
+        background: #ffffff;
+        color: #212121;
+        font-family: "Open Sans", sans-serif;
+        padding: 3rem;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #1e88e5;
+      }
+      .subtitle {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+      }
+      .highlight {
+        color: #43a047;
+      }
+      .accent {
+        color: #ffc107;
+      }
+      .step-box {
+        border-left: 4px solid #1e88e5;
+        padding-left: 20px;
+        margin-bottom: 20px;
+      }
+      .step-number {
+        background-color: #1e88e5;
+        color: white;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 12px;
+      }
+      .timeline {
+        position: relative;
+        margin-top: 40px;
+      }
+      .timeline-line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 18px;
+        width: 4px;
+        background-color: #1e88e5;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .nav-btn {
+        position: fixed;
+        bottom: 20px;
+        background: #1E88E5;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      .nav-btn:hover {
+        background: #1565C0;
+      }
+      .nav-btn.prev {
+        left: 20px;
+      }
+      .nav-btn.next {
+        right: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .slide-container {
+          padding: 1rem !important;
+          min-height: 100vh;
+        }
+
+        h1 {
+          font-size: 2rem !important;
+        }
+
+        h2 {
+          font-size: 1.5rem !important;
+        }
+
+        .text-xl, .text-2xl, .text-3xl {
+          font-size: 1rem !important;
+        }
+
+        .flex-row {
+          flex-direction: column !important;
+        }
+
+        .w-1\/2, .w-3\/5, .w-2\/5 {
+          width: 100% !important;
+        }
+
+        img {
+          max-width: 100% !important;
+          height: auto !important;
+        }
+
+        .nav-btn {
+          padding: 8px 16px;
+          font-size: 0.875rem;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .slide-container {
+          padding: 2rem !important;
+        }
+
+        h1 {
+          font-size: 2.5rem !important;
+        }
+
+        img {
+          max-width: 100% !important;
+          height: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container p-12">
+      <h1 class="text-4xl mb-8 border-b-4 border-green-500 pb-2 inline-block">
+        Next Steps
+      </h1>
+
+      <div class="flex flex-row gap-12 mt-8">
+        <div class="w-3/5">
+          <div class="timeline relative">
+            <div class="timeline-line"></div>
+
+            <div class="step-box ml-10 mb-8 relative">
+              <div class="step-number absolute -left-10">1</div>
+              <h2 class="text-2xl mb-2 highlight">Expand Research</h2>
+              <p class="text-xl">
+                Continue interviews with a wider range of athletes
+                (youth, women) to capture more diverse perspectives.
+              </p>
+            </div>
+
+            <div class="step-box ml-10 mb-8 relative">
+              <div class="step-number absolute -left-10">2</div>
+              <h2 class="text-2xl mb-2 highlight">
+                Refine Data Analysis
+              </h2>
+              <p class="text-xl">
+                Cross-reference demographic variables (age, gender, sport type)
+                with attitudes toward mental health.
+              </p>
+            </div>
+
+            <div class="step-box ml-10 mb-8 relative">
+              <div class="step-number absolute -left-10">3</div>
+              <h2 class="text-2xl mb-2 highlight">
+                Explore Trust Factors
+              </h2>
+              <p class="text-xl">
+                Deepen study of trust factors, with privacy and
+                confidentiality being critical barriers to adoption.
+              </p>
+            </div>
+
+            <div class="step-box ml-10 mb-8 relative">
+              <div class="step-number absolute -left-10">4</div>
+              <h2 class="text-2xl mb-2 highlight">
+                Develop Design Principles
+              </h2>
+              <p class="text-xl">
+                Create initial principles for the Psycho Pro platform:
+                privacy by design, affordable pricing,
+                hybrid formats.
+              </p>
+            </div>
+
+            <div class="step-box ml-10 relative">
+              <div class="step-number absolute -left-10">5</div>
+              <h2 class="text-2xl mb-2 highlight">
+                Complete Quantitative Study
+              </h2>
+              <p class="text-xl">
+                Reach the goal of 25+ survey responses to strengthen
+                statistical reliability of results.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-2/5">
+          <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+            <h3 class="text-2xl mb-4 text-center accent">Final Objective</h3>
+            <p class="text-xl mb-6">
+              Validate initial ideas and provide concrete
+              recommendations so that Psycho Pro can overcome resistance and
+              normalize mental health support in amateur and
+              semi-professional sports.
+            </p>
+
+            <div class="mt-8">
+              <h3 class="text-xl mb-3 highlight">Projected Timeline</h3>
+              <div style="height: 200px">
+                <canvas id="timelineChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById("timelineChart").getContext("2d");
+        const timelineChart = new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: ["Phase 1", "Phase 2", "Phase 3", "Phase 4", "Lancement"],
+            datasets: [
+              {
+                label: "Duration (weeks)",
+                data: [3, 4, 6, 5, 2],
+                backgroundColor: [
+                  "rgba(30, 136, 229, 0.7)",
+                  "rgba(30, 136, 229, 0.7)",
+                  "rgba(67, 160, 71, 0.7)",
+                  "rgba(67, 160, 71, 0.7)",
+                  "rgba(255, 193, 7, 0.7)",
+                ],
+                borderColor: [
+                  "rgba(30, 136, 229, 1)",
+                  "rgba(30, 136, 229, 1)",
+                  "rgba(67, 160, 71, 1)",
+                  "rgba(67, 160, 71, 1)",
+                  "rgba(255, 193, 7, 1)",
+                ],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            indexAxis: "y",
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    return context.raw + " weeks";
+                  },
+                },
+              },
+            },
+            scales: {
+              x: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: "Duration (weeks)",
+                },
+              },
+            },
+          },
+        });
+      });
+    </script>
+
+    <button class="nav-btn prev" onclick="window.location.href='slide7.html'">← Prev</button>
+    <button class="nav-btn next" onclick="window.location.href='slide9.html'">Next →</button>
+  </body>
+</html>

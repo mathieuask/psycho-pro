@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 7 - Solution: Psycho Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .slide-container {
+            max-width: 1280px;
+            min-height: 100vh;
+            margin: 0 auto;
+            background: #FFFFFF;
+            color: #212121;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            padding: 3rem;
+        }
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #1E88E5;
+        }
+        .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        .highlight {
+            color: #43A047;
+        }
+        .accent {
+            color: #FFC107;
+        }
+        .feature-box {
+            border-left: 4px solid #1E88E5;
+            padding: 16px;
+            margin-bottom: 16px;
+            background: linear-gradient(to right, #f0f7ff, #ffffff);
+            border-radius: 0 8px 8px 0;
+            transition: transform 0.3s ease;
+        }
+        .feature-box:hover {
+            transform: translateX(5px);
+        }
+        .advantage-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .advantage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .icon-circle {
+            background: linear-gradient(135deg, #1E88E5 0%, #42A5F5 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 8px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .nav-btn {
+            position: fixed;
+            bottom: 20px;
+            background: #1E88E5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .nav-btn:hover {
+            background: #1565C0;
+        }
+        .nav-btn.prev {
+            left: 20px;
+        }
+        .nav-btn.next {
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .slide-container {
+                padding: 1rem !important;
+                min-height: 100vh;
+            }
+
+            h1 {
+                font-size: 2rem !important;
+            }
+
+            h2 {
+                font-size: 1.5rem !important;
+            }
+
+            .text-xl, .text-2xl, .text-3xl {
+                font-size: 1rem !important;
+            }
+
+            .flex-row {
+                flex-direction: column !important;
+            }
+
+            .w-1\/2, .w-3\/5, .w-2\/5 {
+                width: 100% !important;
+            }
+
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            .nav-btn {
+                padding: 8px 16px;
+                font-size: 0.875rem;
+            }
+
+            .grid-cols-2 {
+                grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .slide-container {
+                padding: 2rem !important;
+            }
+
+            h1 {
+                font-size: 2.5rem !important;
+            }
+
+            img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container p-12">
+        <h1 class="text-4xl mb-8 border-b-4 border-green-500 pb-2 inline-block">Solution: Psycho Pro</h1>
+
+        <div class="flex flex-row gap-8 flex-1">
+            <div class="w-3/5">
+                <h2 class="text-2xl mb-6 highlight">Our platform addresses identified needs</h2>
+
+                <div class="feature-box">
+                    <h3 class="text-xl font-semibold flex items-center">
+                        <i class="fas fa-video mr-3 text-blue-500"></i>Flexible Consultations
+                    </h3>
+                    <p class="text-lg">In-person appointments and online consultations to adapt to athletes' time constraints</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3 class="text-xl font-semibold flex items-center">
+                        <i class="fas fa-shield-alt mr-3 text-green-500"></i>Guaranteed Confidentiality
+                    </h3>
+                    <p class="text-lg">Secure system with data protection and clear separation from clubs/coaches</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3 class="text-xl font-semibold flex items-center">
+                        <i class="fas fa-tags mr-3 text-yellow-500"></i>Adapted Pricing
+                    </h3>
+                    <p class="text-lg">Affordable pricing model (40-69€) with subsidy options for amateur athletes</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3 class="text-xl font-semibold flex items-center">
+                        <i class="fas fa-phone-alt mr-3 text-red-500"></i>24/7 Emergency Hotline
+                    </h3>
+                    <p class="text-lg">Immediate assistance for crisis situations</p>
+                </div>
+
+                <div class="mt-8 bg-gradient-to-r from-yellow-50 to-yellow-100 p-6 rounded-lg border-l-4 border-yellow-400">
+                    <p class="text-xl font-bold">Our goal:</p>
+                    <p class="text-2xl accent font-bold">Normalize mental health support in amateur sports</p>
+                </div>
+            </div>
+
+            <div class="w-2/5 flex flex-col">
+                <div class="mb-6 bg-gray-50 rounded-lg p-4">
+                    <img src="mockup_platform.png" alt="Psycho Pro Interface" class="w-full h-auto rounded-lg shadow-md" style="object-fit: contain;">
+                    <p class="text-sm text-gray-600 mt-2 text-center">Intuitive and secure interface</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="advantage-card text-center">
+                        <div class="icon-circle">
+                            <i class="fas fa-lock text-2xl"></i>
+                        </div>
+                        <p class="font-semibold">Confidentiality</p>
+                        <p class="text-sm text-gray-600">100% private</p>
+                    </div>
+
+                    <div class="advantage-card text-center">
+                        <div class="icon-circle">
+                            <i class="fas fa-clock text-2xl"></i>
+                        </div>
+                        <p class="font-semibold">Flexibility</p>
+                        <p class="text-sm text-gray-600">7 days/week</p>
+                    </div>
+
+                    <div class="advantage-card text-center">
+                        <div class="icon-circle">
+                            <i class="fas fa-euro-sign text-2xl"></i>
+                        </div>
+                        <p class="font-semibold">Affordability</p>
+                        <p class="text-sm text-gray-600">40-69€/session</p>
+                    </div>
+
+                    <div class="advantage-card text-center">
+                        <div class="icon-circle">
+                            <i class="fas fa-user-md text-2xl"></i>
+                        </div>
+                        <p class="font-semibold">Expertise</p>
+                        <p class="text-sm text-gray-600">Sports specialists</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="nav-btn prev" onclick="window.location.href='slide6.html'">← Prev</button>
+    <button class="nav-btn next" onclick="window.location.href='slide8.html'">Next →</button>
+</body>
+</html>

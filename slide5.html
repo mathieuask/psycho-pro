@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 5 - Qualitative Results</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .slide-container {
+        max-width: 1280px;
+        min-height: 100vh;
+        margin: 0 auto;
+        background: #ffffff;
+        color: #212121;
+        font-family: "Open Sans", sans-serif;
+        display: flex;
+        flex-direction: column;
+        padding: 3rem;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        color: #1e88e5;
+      }
+      .subtitle {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+      }
+      .highlight {
+        color: #43a047;
+      }
+      .accent {
+        color: #ffc107;
+      }
+      .theme-box {
+        border-left: 4px solid #1e88e5;
+        padding-left: 16px;
+        margin-bottom: 20px;
+        background-color: #f8f9fa;
+        padding: 16px;
+        border-radius: 0 8px 8px 0;
+      }
+      .quote {
+        font-style: italic;
+        color: #555;
+        border-left: 3px solid #ffc107;
+        padding-left: 12px;
+        margin-top: 8px;
+      }
+      .participant-card {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .stat-item {
+        background: white;
+        border-radius: 8px;
+        padding: 12px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .nav-btn {
+        position: fixed;
+        bottom: 20px;
+        background: #1e88e5;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      .nav-btn:hover {
+        background: #1565c0;
+      }
+      .nav-btn.prev {
+        left: 20px;
+      }
+      .nav-btn.next {
+        right: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .slide-container {
+          padding: 1rem !important;
+          min-height: 100vh;
+        }
+
+        h1 {
+          font-size: 2rem !important;
+        }
+
+        h2 {
+          font-size: 1.5rem !important;
+        }
+
+        .text-xl,
+        .text-2xl,
+        .text-3xl {
+          font-size: 1rem !important;
+        }
+
+        .flex-row {
+          flex-direction: column !important;
+        }
+
+        .w-1\/2,
+        .w-3\/5,
+        .w-2\/5 {
+          width: 100% !important;
+        }
+
+        img {
+          max-width: 100% !important;
+          height: auto !important;
+        }
+
+        .nav-btn {
+          padding: 8px 16px;
+          font-size: 0.875rem;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .slide-container {
+          padding: 2rem !important;
+        }
+
+        h1 {
+          font-size: 2.5rem !important;
+        }
+
+        img {
+          max-width: 100% !important;
+          height: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container p-12">
+      <h1 class="text-4xl mb-8 border-b-4 border-green-500 pb-2 inline-block">
+        Qualitative Results
+      </h1>
+
+      <div class="flex flex-row gap-8 flex-1">
+        <div class="w-3/5">
+          <p class="text-xl mb-6">
+            Semi-structured interviews with
+            <span class="font-bold text-2xl highlight"
+              >10 amateur athletes</span
+            >
+            (18-30 years)
+          </p>
+
+          <div class="theme-box">
+            <h2 class="text-2xl mb-2">
+              <i class="fas fa-ban text-red-500 mr-2"></i>Stigma and denial
+            </h2>
+            <p class="text-lg">
+              Psychological support perceived as weakness, especially in male
+              sports.
+            </p>
+            <p class="quote text-base">
+              "I postponed help despite clear signs of stress and declining
+              performance."
+            </p>
+          </div>
+
+          <div class="theme-box">
+            <h2 class="text-2xl mb-2">
+              <i class="fas fa-search text-yellow-500 mr-2"></i>Access and
+              availability
+            </h2>
+            <p class="text-lg">
+              Difficulty finding qualified, specialized sports psychologists.
+            </p>
+            <p class="quote text-base">
+              "Impossible to find a professional who truly understands my
+              discipline."
+            </p>
+          </div>
+
+          <div class="theme-box">
+            <h2 class="text-2xl mb-2">
+              <i class="fas fa-barrier text-gray-600 mr-2"></i>Practical
+              barriers
+            </h2>
+            <p class="text-lg">
+              Lack of time, high cost, uncertainty about confidentiality.
+            </p>
+            <p class="quote text-base">
+              "I can't afford to consult regularly."
+            </p>
+          </div>
+        </div>
+
+        <div class="w-2/5 flex flex-col justify-center">
+          <div class="participant-card">
+            <h3 class="text-2xl mb-4 text-center text-gray-800">
+              Participant profile
+            </h3>
+
+            <div class="grid grid-cols-1 gap-4">
+              <div class="stat-item">
+                <i class="fas fa-users text-3xl text-blue-500 mb-2"></i>
+                <p class="font-bold text-lg">Gender</p>
+                <p class="text-2xl font-bold highlight">5 men • 2 women</p>
+              </div>
+
+              <div class="stat-item">
+                <i class="fas fa-running text-3xl text-green-500 mb-2"></i>
+                <p class="font-bold text-lg">Sport types</p>
+                <p class="text-lg">Individual and team sports</p>
+                <p class="text-sm text-gray-600">Regular intensive training</p>
+              </div>
+
+              <div class="stat-item">
+                <i
+                  class="fas fa-calendar-alt text-3xl text-yellow-500 mb-2"
+                ></i>
+                <p class="font-bold text-lg">Age range</p>
+                <p class="text-2xl font-bold highlight">18-30 years</p>
+                <p class="text-sm text-gray-600">Average age: 24 years</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 bg-blue-50 p-4 rounded-lg text-center">
+            <p class="text-sm text-gray-700">
+              <i class="fas fa-info-circle text-blue-500"></i>
+              All participants have practiced their sport for over 5 years
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="nav-btn prev" onclick="window.location.href='slide4.html'">
+      ← Prev
+    </button>
+    <button class="nav-btn next" onclick="window.location.href='slide6.html'">
+      Next →
+    </button>
+  </body>
+</html>

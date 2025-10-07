@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+      .slide-container {
+        max-width: 1280px;
+        min-height: 100vh;
+        margin: 0 auto;
+        background: #FFFFFF;
+        color: #212121;
+        font-family: 'Open Sans', sans-serif;
+        padding: 3rem;
+      }
+      h1, h2, h3 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: #1E88E5;
+      }
+      .subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+      }
+      .highlight {
+        color: #43A047;
+      }
+      .accent {
+        color: #FFC107;
+      }
+      .method-box {
+        border: 2px solid #1E88E5;
+        border-radius: 8px;
+        padding: 20px;
+        background-color: rgba(30, 136, 229, 0.05);
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .nav-btn {
+        position: fixed;
+        bottom: 20px;
+        background: #1E88E5;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      .nav-btn:hover {
+        background: #1565C0;
+      }
+      .nav-btn.prev {
+        left: 20px;
+      }
+      .nav-btn.next {
+        right: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .slide-container {
+          padding: 1rem !important;
+          min-height: 100vh;
+        }
+
+        h1 {
+          font-size: 2rem !important;
+        }
+
+        h2 {
+          font-size: 1.5rem !important;
+        }
+
+        .text-xl, .text-2xl, .text-3xl {
+          font-size: 1rem !important;
+        }
+
+        .flex-row {
+          flex-direction: column !important;
+        }
+
+        .w-1\/2, .w-3\/5, .w-2\/5 {
+          width: 100% !important;
+        }
+
+        img {
+          max-width: 100% !important;
+          height: auto !important;
+        }
+
+        .nav-btn {
+          padding: 8px 16px;
+          font-size: 0.875rem;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .slide-container {
+          padding: 2rem !important;
+        }
+
+        h1 {
+          font-size: 2.5rem !important;
+        }
+
+        img {
+          max-width: 100% !important;
+          height: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container p-12">
+      <h1 class="text-4xl mb-8 border-b-4 border-green-500 pb-2 inline-block">Lag-User Method</h1>
+      
+      <div class="flex flex-row gap-8 mt-8">
+        <div class="w-1/2">
+          <div class="method-box mb-8">
+            <h2 class="text-2xl mb-4 highlight">What is the Lag-User Method?</h2>
+            <p class="text-xl">An approach that identifies late adopters of a technology or service to understand adoption barriers and develop innovative solutions.</p>
+          </div>
+
+          <div class="mt-8">
+            <h2 class="text-2xl mb-4 highlight">Why are amateur athletes "late adopters"?</h2>
+            <ul class="list-disc pl-6 space-y-3 text-xl">
+              <li>In sports culture, mental health issues are perceived as <span class="font-semibold">weaknesses</span></li>
+              <li>Priority given to physical performance over mental health</li>
+              <li>Stigma and denial leading to avoiding seeking help</li>
+              <li>Lack of services adapted to their specific needs</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="w-1/2 flex flex-col justify-center items-center">
+          <img src="https://private-us-east-1.manuscdn.com/sessionFile/hG2qGRvjDreRalPbmCoEt5/sandbox/slides_resource_iqsf20kzdtvrfpwfem2rw-27631e7f-e2b-prod_1759831461213_na1fn_L2hvbWUvdWJ1bnR1L3ByZXNlbnRhdGlvbl9pbWFnZXMvUjFXQm51dkR2Nmt1.jpg?x-oss-process=image/resize,w_1560,h_1560/format,webp&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvaEcycUdSdmpEcmVSYWxQYm1Db0V0NS9zYW5kYm94L3NsaWRlc19yZXNvdXJjZV9pcXNmMjBremR0dnJmcHdmZW0ycnctMjc2MzFlN2YtZTJiLXByb2RfMTc1OTgzMTQ2MTIxM19uYTFmbl9MMmh2YldVdmRXSjFiblIxTDNCeVpYTmxiblJoZEdsdmJsOXBiV0ZuWlhNdlVqRlhRbTUxZGtSMk5tdDEuanBnP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTU2MCxoXzE1NjAvZm9ybWF0LHdlYnAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=wEUr28PmrT1FOU5ZIq3lTjrVoo4LlMwRFrklInDK2rHw1PXMybqtOIQ5PJRTeNhM~idOC--tVP3P3zb~lDHgeWIHRIxwByPYJvU1VO5tDQI6z61PZKqeopwEWdPbGPTCUrOmVgVafO2uAM-UD3wbwHmnw~Po6CrSy3LFv07Si6sPYs1uujobgxvSOwMANrIpAES6AldFuoE5bcJdnYdAX0wiSJ5fvlZGxGIcH5Fpz4NSAdJndBIMoyKwPMQVGiFiDzzDIDBnofjhurONnah6ELw4kCeebfd885aMyQkPBuG7hNHyNAaQ~0JxCBTXkWz-y41G2vAkzqI4Tuy6q7LdGg__" alt="Sport psychology and performance" class="rounded-lg shadow-lg" style="max-width: 500px; object-fit: contain;">
+          <p class="text-sm text-gray-600 mt-2">Source: Bayside Sports</p>
+
+          <div class="mt-8 w-full">
+            <p class="text-xl text-center accent font-semibold">"Psycho Pro aims to help athletes normalize mental health care in sports by removing these barriers."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="nav-btn prev" onclick="window.location.href='slide2.html'">← Prev</button>
+    <button class="nav-btn next" onclick="window.location.href='slide4.html'">Next →</button>
+  </body>
+</html>
