@@ -44,28 +44,34 @@
       .accent {
         color: #ffc107;
       }
-      .conclusion-box {
-        border: 2px solid #1e88e5;
-        border-radius: 8px;
-        padding: 24px;
-        background-color: rgba(30, 136, 229, 0.05);
+      .step-box {
+        border-left: 4px solid #1e88e5;
+        padding-left: 20px;
+        margin-bottom: 20px;
       }
-      .key-point {
-        display: flex;
-        align-items: center;
-        margin-bottom: 16px;
-      }
-      .key-point-icon {
-        background-color: #43a047;
+      .step-number {
+        background-color: #1e88e5;
         color: white;
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-right: 16px;
-        flex-shrink: 0;
+        font-weight: bold;
+        margin-right: 12px;
+      }
+      .timeline {
+        position: relative;
+        margin-top: 40px;
+      }
+      .timeline-line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 18px;
+        width: 4px;
+        background-color: #1e88e5;
       }
       img {
         max-width: 100%;
@@ -149,71 +155,86 @@
   <body>
     <div class="slide-container p-12">
       <h1 class="text-4xl mb-8 border-b-4 border-green-500 pb-2 inline-block">
-        Conclusion
+        Next Steps
       </h1>
 
-      <div class="flex flex-row gap-10 mt-8">
-        <div class="w-1/2">
-          <div class="conclusion-box mb-8">
-            <h2 class="text-2xl mb-6 text-center">Project Summary</h2>
-            <p class="text-xl mb-4">
-              Psycho Pro aims to bridge a critical gap in mental health
-              support for amateur athletes, by addressing the
-              barriers identified through our research.
-            </p>
-            <p class="text-xl">
-              Our Lag-User method approach allowed us to
-              identify the specific needs of amateur athletes,
-              often overlooked in discussions about mental health in
-              sports.
-            </p>
-          </div>
+      <div class="flex flex-row gap-12 mt-8">
+        <div class="w-3/5">
+          <div class="timeline relative">
+            <div class="timeline-line"></div>
 
-          <div class="mt-10">
-            <h2 class="text-2xl mb-6 highlight">Expected Impact</h2>
-            <div class="key-point">
-              <div class="key-point-icon">
-                <i class="fas fa-check"></i>
-              </div>
+            <div class="step-box ml-10 mb-8 relative">
+              <div class="step-number absolute -left-10">1</div>
+              <h2 class="text-2xl mb-2 highlight">Expand Research</h2>
               <p class="text-xl">
-                Reduction of stigma around mental health in
-                sports
+                Continue interviews with a wider range of athletes
+                (youth, women) to capture more diverse perspectives.
               </p>
             </div>
-            <div class="key-point">
-              <div class="key-point-icon">
-                <i class="fas fa-check"></i>
-              </div>
+
+            <div class="step-box ml-10 mb-8 relative">
+              <div class="step-number absolute -left-10">2</div>
+              <h2 class="text-2xl mb-2 highlight">
+                Refine Data Analysis
+              </h2>
               <p class="text-xl">
-                Improved access to mental health professionals
+                Cross-reference demographic variables (age, gender, sport type)
+                with attitudes toward mental health.
               </p>
             </div>
-            <div class="key-point">
-              <div class="key-point-icon">
-                <i class="fas fa-check"></i>
-              </div>
+
+            <div class="step-box ml-10 mb-8 relative">
+              <div class="step-number absolute -left-10">3</div>
+              <h2 class="text-2xl mb-2 highlight">
+                Explore Trust Factors
+              </h2>
               <p class="text-xl">
-                Creation of a healthier and more balanced sports environment
+                Deepen study of trust factors, with privacy and
+                confidentiality being critical barriers to adoption.
+              </p>
+            </div>
+
+            <div class="step-box ml-10 mb-8 relative">
+              <div class="step-number absolute -left-10">4</div>
+              <h2 class="text-2xl mb-2 highlight">
+                Develop Design Principles
+              </h2>
+              <p class="text-xl">
+                Create initial principles for the Psycho Pro platform:
+                privacy by design, affordable pricing,
+                hybrid formats.
+              </p>
+            </div>
+
+            <div class="step-box ml-10 relative">
+              <div class="step-number absolute -left-10">5</div>
+              <h2 class="text-2xl mb-2 highlight">
+                Complete Quantitative Study
+              </h2>
+              <p class="text-xl">
+                Reach the goal of 25+ survey responses to strengthen
+                statistical reliability of results.
               </p>
             </div>
           </div>
         </div>
 
-        <div class="w-1/2">
-          <div style="height: 350px">
-            <canvas id="adoptionChart"></canvas>
-          </div>
+        <div class="w-2/5">
+          <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+            <h3 class="text-2xl mb-4 text-center accent">Final Objective</h3>
+            <p class="text-xl mb-6">
+              Validate initial ideas and provide concrete
+              recommendations so that Psycho Pro can overcome resistance and
+              normalize mental health support in amateur and
+              semi-professional sports.
+            </p>
 
-          <div class="mt-10 bg-blue-50 p-6 rounded-lg">
-            <h2 class="text-2xl mb-4 text-center accent">Our Vision</h2>
-            <p class="text-xl text-center">
-              Normalize mental health support in amateur and
-              semi-professional sports, making mental health an
-              integral part of athletes' training and development.
-            </p>
-            <p class="text-xl text-center mt-4 font-semibold">
-              "Mental strength is just as important as physical strength."
-            </p>
+            <div class="mt-8">
+              <h3 class="text-xl mb-3 highlight">Projected Timeline</h3>
+              <div style="height: 200px">
+                <canvas id="timelineChart"></canvas>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -221,53 +242,55 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const ctx = document.getElementById("adoptionChart").getContext("2d");
-        const adoptionChart = new Chart(ctx, {
-          type: "line",
+        const ctx = document.getElementById("timelineChart").getContext("2d");
+        const timelineChart = new Chart(ctx, {
+          type: "bar",
           data: {
-            labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5"],
+            labels: ["Phase 1", "Phase 2", "Phase 3", "Phase 4", "Lancement"],
             datasets: [
               {
-                label: "Projected adoption (athletes)",
-                data: [500, 2000, 5000, 12000, 25000],
-                borderColor: "#1E88E5",
-                backgroundColor: "rgba(30, 136, 229, 0.1)",
-                tension: 0.4,
-                fill: true,
-              },
-              {
-                label: "Available professionals",
-                data: [50, 150, 300, 600, 1000],
-                borderColor: "#43A047",
-                backgroundColor: "rgba(67, 160, 71, 0.1)",
-                tension: 0.4,
-                fill: true,
+                label: "Duration (weeks)",
+                data: [3, 4, 6, 5, 2],
+                backgroundColor: [
+                  "rgba(30, 136, 229, 0.7)",
+                  "rgba(30, 136, 229, 0.7)",
+                  "rgba(67, 160, 71, 0.7)",
+                  "rgba(67, 160, 71, 0.7)",
+                  "rgba(255, 193, 7, 0.7)",
+                ],
+                borderColor: [
+                  "rgba(30, 136, 229, 1)",
+                  "rgba(30, 136, 229, 1)",
+                  "rgba(67, 160, 71, 1)",
+                  "rgba(67, 160, 71, 1)",
+                  "rgba(255, 193, 7, 1)",
+                ],
+                borderWidth: 1,
               },
             ],
           },
           options: {
+            indexAxis: "y",
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-              title: {
-                display: true,
-                text: "5-Year Growth Projection",
-                font: {
-                  family: "Montserrat",
-                  size: 16,
-                },
+              legend: {
+                display: false,
               },
               tooltip: {
-                mode: "index",
-                intersect: false,
+                callbacks: {
+                  label: function (context) {
+                    return context.raw + " weeks";
+                  },
+                },
               },
             },
             scales: {
-              y: {
+              x: {
                 beginAtZero: true,
                 title: {
                   display: true,
-                  text: "Number",
+                  text: "Duration (weeks)",
                 },
               },
             },

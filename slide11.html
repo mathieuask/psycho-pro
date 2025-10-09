@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #1e88e5 0%, #43a047 100%);
+        min-height: 100vh;
+      }
+      .slide-container {
+        max-width: 1280px;
+        min-height: 100vh;
+        margin: 0 auto;
+        color: #ffffff;
+        font-family: "Open Sans", sans-serif;
+        padding: 4rem;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+      }
+      .subtitle {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+      }
+      
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .nav-btn {
+        position: fixed;
+        bottom: 20px;
+        background: #1E88E5;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      .nav-btn:hover {
+        background: #1565C0;
+      }
+      .nav-btn.prev {
+        left: 20px;
+      }
+      .nav-btn.next {
+        right: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .slide-container {
+          padding: 1rem !important;
+          min-height: 100vh;
+        }
+
+        h1 {
+          font-size: 2rem !important;
+        }
+
+        h2 {
+          font-size: 1.5rem !important;
+        }
+
+        .text-xl, .text-2xl, .text-3xl, .text-7xl, .text-9xl {
+          font-size: 1.25rem !important;
+        }
+
+        .flex-row {
+          flex-direction: column !important;
+        }
+
+        .w-1\/2, .w-3\/5, .w-2\/5, .w-2\/3 {
+          width: 100% !important;
+        }
+
+        img {
+          max-width: 100% !important;
+          height: auto !important;
+        }
+
+        .nav-btn {
+          padding: 8px 16px;
+          font-size: 0.875rem;
+        }
+
+        .space-x-8 > * {
+          margin-right: 0 !important;
+          margin-bottom: 0.5rem;
+        }
+
+        .flex.justify-center.space-x-8 {
+          flex-direction: column !important;
+          align-items: center !important;
+        }
+      }
+
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .slide-container {
+          padding: 2rem !important;
+        }
+
+        h1 {
+          font-size: 2.5rem !important;
+        }
+
+        img {
+          max-width: 100% !important;
+          height: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-container flex flex-col items-center justify-center p-16">
+      <div class="text-center mb-12">
+        <h1 class="text-7xl mb-6">Questions?</h1>
+        <p class="subtitle text-3xl mb-4">Thank you for your attention</p>
+      </div>
+
+      <div class="flex justify-center items-center mb-12">
+        <div class="text-center">
+          <i class="fas fa-comments text-9xl mb-8 text-white opacity-80"></i>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <a href="https://www.figma.com/proto/jxdZlyGNMwUU3i85Ta9GdB/GoodGoodTime?page-id=1774%3A4374&node-id=2252-776&p=f&viewport=-1543%2C63%2C0.6&t=KjUOZU9QNXQBja33-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2252%3A2"
+           target="_blank"
+           class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-xl hover:bg-gray-100 transition-colors shadow-lg">
+          <i class="fab fa-figma mr-2"></i>View Figma Prototype
+        </a>
+      </div>
+
+    </div>
+
+    <button class="nav-btn prev" onclick="window.location.href='slide10.html'">← Prev</button>
+  </body>
+</html>

@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 11 - PESTEL Analysis</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <script src="https://d3js.org/d3.v7.min.js"></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
@@ -25,6 +24,8 @@
         background: #ffffff;
         color: #212121;
         font-family: "Open Sans", sans-serif;
+        display: flex;
+        flex-direction: column;
         padding: 3rem;
       }
       h1,
@@ -44,34 +45,35 @@
       .accent {
         color: #ffc107;
       }
-      .step-box {
+      .pestel-box {
         border-left: 4px solid #1e88e5;
-        padding-left: 20px;
+        padding-left: 16px;
         margin-bottom: 20px;
+        background-color: #f8f9fa;
+        padding: 16px;
+        border-radius: 0 8px 8px 0;
       }
-      .step-number {
-        background-color: #1e88e5;
-        color: white;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        margin-right: 12px;
+      .pestel-political {
+        border-left-color: #e53935;
       }
-      .timeline {
-        position: relative;
-        margin-top: 40px;
+      .pestel-economic {
+        border-left-color: #43a047;
       }
-      .timeline-line {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 18px;
-        width: 4px;
-        background-color: #1e88e5;
+      .pestel-social {
+        border-left-color: #1e88e5;
+      }
+      .pestel-technological {
+        border-left-color: #8e24aa;
+      }
+      .pestel-environmental {
+        border-left-color: #00897b;
+      }
+      .pestel-legal {
+        border-left-color: #ffc107;
+      }
+      .pestel-icon {
+        font-size: 1.5rem;
+        margin-right: 8px;
       }
       img {
         max-width: 100%;
@@ -80,17 +82,17 @@
       .nav-btn {
         position: fixed;
         bottom: 20px;
-        background: #1E88E5;
+        background: #1e88e5;
         color: white;
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;
         font-weight: bold;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       }
       .nav-btn:hover {
-        background: #1565C0;
+        background: #1565c0;
       }
       .nav-btn.prev {
         left: 20px;
@@ -113,7 +115,9 @@
           font-size: 1.5rem !important;
         }
 
-        .text-xl, .text-2xl, .text-3xl {
+        .text-xl,
+        .text-2xl,
+        .text-3xl {
           font-size: 1rem !important;
         }
 
@@ -121,7 +125,9 @@
           flex-direction: column !important;
         }
 
-        .w-1\/2, .w-3\/5, .w-2\/5 {
+        .w-1\/2,
+        .w-3\/5,
+        .w-2\/5 {
           width: 100% !important;
         }
 
@@ -155,151 +161,120 @@
   <body>
     <div class="slide-container p-12">
       <h1 class="text-4xl mb-8 border-b-4 border-green-500 pb-2 inline-block">
-        Next Steps
+        PESTEL Analysis
       </h1>
 
-      <div class="flex flex-row gap-12 mt-8">
-        <div class="w-3/5">
-          <div class="timeline relative">
-            <div class="timeline-line"></div>
+      <p class="text-xl mb-6 text-gray-700">
+        External environmental analysis for Psycho Pro platform
+      </p>
 
-            <div class="step-box ml-10 mb-8 relative">
-              <div class="step-number absolute -left-10">1</div>
-              <h2 class="text-2xl mb-2 highlight">Expand Research</h2>
-              <p class="text-xl">
-                Continue interviews with a wider range of athletes
-                (youth, women) to capture more diverse perspectives.
-              </p>
-            </div>
-
-            <div class="step-box ml-10 mb-8 relative">
-              <div class="step-number absolute -left-10">2</div>
-              <h2 class="text-2xl mb-2 highlight">
-                Refine Data Analysis
-              </h2>
-              <p class="text-xl">
-                Cross-reference demographic variables (age, gender, sport type)
-                with attitudes toward mental health.
-              </p>
-            </div>
-
-            <div class="step-box ml-10 mb-8 relative">
-              <div class="step-number absolute -left-10">3</div>
-              <h2 class="text-2xl mb-2 highlight">
-                Explore Trust Factors
-              </h2>
-              <p class="text-xl">
-                Deepen study of trust factors, with privacy and
-                confidentiality being critical barriers to adoption.
-              </p>
-            </div>
-
-            <div class="step-box ml-10 mb-8 relative">
-              <div class="step-number absolute -left-10">4</div>
-              <h2 class="text-2xl mb-2 highlight">
-                Develop Design Principles
-              </h2>
-              <p class="text-xl">
-                Create initial principles for the Psycho Pro platform:
-                privacy by design, affordable pricing,
-                hybrid formats.
-              </p>
-            </div>
-
-            <div class="step-box ml-10 relative">
-              <div class="step-number absolute -left-10">5</div>
-              <h2 class="text-2xl mb-2 highlight">
-                Complete Quantitative Study
-              </h2>
-              <p class="text-xl">
-                Reach the goal of 25+ survey responses to strengthen
-                statistical reliability of results.
-              </p>
-            </div>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Political -->
+        <div class="pestel-box pestel-political">
+          <h2 class="text-xl mb-3">
+            <i class="fas fa-landmark pestel-icon" style="color: #e53935"></i
+            >Political
+          </h2>
+          <ul class="list-disc pl-6 space-y-2 text-base">
+            <li>Increased government focus on mental health initiatives</li>
+            <li>National sports federations promoting athlete wellbeing</li>
+          </ul>
         </div>
 
-        <div class="w-2/5">
-          <div class="bg-blue-50 p-6 rounded-lg shadow-md">
-            <h3 class="text-2xl mb-4 text-center accent">Final Objective</h3>
-            <p class="text-xl mb-6">
-              Validate initial ideas and provide concrete
-              recommendations so that Psycho Pro can overcome resistance and
-              normalize mental health support in amateur and
-              semi-professional sports.
-            </p>
+        <!-- Economic -->
+        <div class="pestel-box pestel-economic">
+          <h2 class="text-xl mb-3">
+            <i class="fas fa-chart-line pestel-icon" style="color: #43a047"></i
+            >Economic
+          </h2>
+          <ul class="list-disc pl-6 space-y-2 text-base">
+            <li>
+              Mental health apps market: <strong>$7B (2024) → $15.6B (2029)</strong>
+            </li>
+            <li>CAGR of 18.3% indicating strong growth potential</li>
+          </ul>
+        </div>
 
-            <div class="mt-8">
-              <h3 class="text-xl mb-3 highlight">Projected Timeline</h3>
-              <div style="height: 200px">
-                <canvas id="timelineChart"></canvas>
-              </div>
-            </div>
+        <!-- Social -->
+        <div class="pestel-box pestel-social">
+          <h2 class="text-xl mb-3">
+            <i class="fas fa-users pestel-icon" style="color: #1e88e5"></i
+            >Social
+          </h2>
+          <ul class="list-disc pl-6 space-y-2 text-base">
+            <li>
+              Decreasing stigma around mental health, especially in sports
+            </li>
+            <li>Gen Z athletes (18-30) more open to digital health solutions</li>
+          </ul>
+        </div>
+
+        <!-- Technological -->
+        <div class="pestel-box pestel-technological">
+          <h2 class="text-xl mb-3">
+            <i class="fas fa-microchip pestel-icon" style="color: #8e24aa"></i
+            >Technological
+          </h2>
+          <ul class="list-disc pl-6 space-y-2 text-base">
+            <li>
+              AI integration for personalized mental health recommendations
+            </li>
+            <li>Smartphone penetration at 85%+ in target markets</li>
+          </ul>
+        </div>
+
+        <!-- Environmental -->
+        <div class="pestel-box pestel-environmental">
+          <h2 class="text-xl mb-3">
+            <i class="fas fa-leaf pestel-icon" style="color: #00897b"></i
+            >Environmental
+          </h2>
+          <ul class="list-disc pl-6 space-y-2 text-base">
+            <li>
+              Digital-first approach reduces carbon footprint vs. in-person
+              consultations
+            </li>
+            <li>Green credentials attractive to environmentally conscious athletes</li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="pestel-box pestel-legal">
+          <h2 class="text-xl mb-3">
+            <i class="fas fa-gavel pestel-icon" style="color: #ffc107"></i>Legal
+          </h2>
+          <ul class="list-disc pl-6 space-y-2 text-base">
+            <li><strong>GDPR compliance</strong> mandatory for EU operations</li>
+            <li>
+              Data privacy concerns as #1 barrier (identified in research)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+        <h3 class="text-lg font-bold mb-2 text-blue-900">
+          <i class="fas fa-lightbulb mr-2"></i>Key Insights
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
+          <div>
+            <span class="font-bold highlight">Opportunities:</span> Strong market
+            growth, decreasing stigma, technological enablers
+          </div>
+          <div>
+            <span class="font-bold text-red-600">Challenges:</span> Data privacy
+            regulations, need for qualified professionals, stigma remains in male
+            sports
           </div>
         </div>
       </div>
     </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const ctx = document.getElementById("timelineChart").getContext("2d");
-        const timelineChart = new Chart(ctx, {
-          type: "bar",
-          data: {
-            labels: ["Phase 1", "Phase 2", "Phase 3", "Phase 4", "Lancement"],
-            datasets: [
-              {
-                label: "Duration (weeks)",
-                data: [3, 4, 6, 5, 2],
-                backgroundColor: [
-                  "rgba(30, 136, 229, 0.7)",
-                  "rgba(30, 136, 229, 0.7)",
-                  "rgba(67, 160, 71, 0.7)",
-                  "rgba(67, 160, 71, 0.7)",
-                  "rgba(255, 193, 7, 0.7)",
-                ],
-                borderColor: [
-                  "rgba(30, 136, 229, 1)",
-                  "rgba(30, 136, 229, 1)",
-                  "rgba(67, 160, 71, 1)",
-                  "rgba(67, 160, 71, 1)",
-                  "rgba(255, 193, 7, 1)",
-                ],
-                borderWidth: 1,
-              },
-            ],
-          },
-          options: {
-            indexAxis: "y",
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: false,
-              },
-              tooltip: {
-                callbacks: {
-                  label: function (context) {
-                    return context.raw + " weeks";
-                  },
-                },
-              },
-            },
-            scales: {
-              x: {
-                beginAtZero: true,
-                title: {
-                  display: true,
-                  text: "Duration (weeks)",
-                },
-              },
-            },
-          },
-        });
-      });
-    </script>
-
-    <button class="nav-btn prev" onclick="window.location.href='slide7.html'">← Prev</button>
-    <button class="nav-btn next" onclick="window.location.href='slide9.html'">Next →</button>
+    <button class="nav-btn prev" onclick="window.location.href='slide7.html'">
+      ← Prev
+    </button>
+    <button class="nav-btn next" onclick="window.location.href='slide9.html'">
+      Next →
+    </button>
   </body>
 </html>
