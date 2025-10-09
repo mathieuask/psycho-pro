@@ -3,158 +3,229 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <title>Questions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-      body {
+      * {
         margin: 0;
         padding: 0;
-        background: linear-gradient(135deg, #1e88e5 0%, #43a047 100%);
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background: #ffffff;
+        color: #111;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .container {
         min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        position: relative;
       }
-      .slide-container {
-        max-width: 1280px;
-        min-height: 100vh;
-        margin: 0 auto;
-        color: #ffffff;
-        font-family: "Open Sans", sans-serif;
-        padding: 4rem;
+
+      .hero {
+        flex: 1;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        padding: 50px 48px 60px;
+        position: relative;
       }
-      h1,
-      h2,
-      h3 {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 700;
+
+      .content-wrapper {
+        max-width: 1000px;
+        width: 100%;
+        text-align: center;
       }
+
+      h1 {
+        font-size: 72px;
+        font-weight: 900;
+        line-height: 0.95;
+        letter-spacing: -2px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
       .subtitle {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600;
+        font-size: 28px;
+        font-weight: 300;
+        margin-bottom: 60px;
+        letter-spacing: 0px;
       }
-      
-      img {
-        max-width: 100%;
-        height: auto;
+
+      .icon-wrapper {
+        margin-bottom: 60px;
       }
+
+      .icon-circle {
+        width: 160px;
+        height: 160px;
+        background: #111;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+      }
+
+      .icon-circle i {
+        font-size: 70px;
+        color: #fff;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: #111;
+        color: #fff;
+        padding: 20px 40px;
+        font-size: 17px;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background: #333;
+        transform: scale(1.05);
+      }
+
+      .cta-button i {
+        margin-right: 10px;
+      }
+
+      .thank-you {
+        font-size: 17px;
+        font-weight: 400;
+        margin-top: 40px;
+        color: #666;
+      }
+
       .nav-btn {
         position: fixed;
-        bottom: 20px;
-        background: #1E88E5;
-        color: white;
+        background: #111;
+        color: #fff;
         border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
+        padding: 18px 36px;
+        font-size: 16px;
+        font-weight: 700;
         cursor: pointer;
-        font-weight: bold;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        z-index: 100;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        bottom: 48px;
       }
+
       .nav-btn:hover {
-        background: #1565C0;
+        background: #333;
+        transform: scale(1.05);
       }
+
       .nav-btn.prev {
-        left: 20px;
+        left: 48px;
       }
-      .nav-btn.next {
-        right: 20px;
+
+      @media (max-width: 1024px) {
+        h1 {
+          font-size: 80px;
+        }
+
+        .subtitle {
+          font-size: 28px;
+          margin-bottom: 60px;
+        }
+
+        .icon-circle {
+          width: 160px;
+          height: 160px;
+        }
+
+        .icon-circle i {
+          font-size: 64px;
+        }
+
+        .hero {
+          padding: 60px 32px 60px;
+        }
       }
 
       @media (max-width: 768px) {
-        .slide-container {
-          padding: 1rem !important;
-          min-height: 100vh;
-        }
-
         h1 {
-          font-size: 2rem !important;
+          font-size: 56px;
+          letter-spacing: -2px;
         }
 
-        h2 {
-          font-size: 1.5rem !important;
+        .subtitle {
+          font-size: 22px;
+          margin-bottom: 40px;
         }
 
-        .text-xl, .text-2xl, .text-3xl, .text-7xl, .text-9xl {
-          font-size: 1.25rem !important;
+        .icon-circle {
+          width: 120px;
+          height: 120px;
         }
 
-        .flex-row {
-          flex-direction: column !important;
+        .icon-circle i {
+          font-size: 48px;
         }
 
-        .w-1\/2, .w-3\/5, .w-2\/5, .w-2\/3 {
-          width: 100% !important;
+        .cta-button {
+          padding: 18px 32px;
+          font-size: 16px;
+          letter-spacing: 1px;
         }
 
-        img {
-          max-width: 100% !important;
-          height: auto !important;
+        .icon-wrapper {
+          margin-bottom: 60px;
+        }
+
+        .hero {
+          padding: 40px 24px 60px;
         }
 
         .nav-btn {
-          padding: 8px 16px;
-          font-size: 0.875rem;
-        }
-
-        .space-x-8 > * {
-          margin-right: 0 !important;
-          margin-bottom: 0.5rem;
-        }
-
-        .flex.justify-center.space-x-8 {
-          flex-direction: column !important;
-          align-items: center !important;
-        }
-      }
-
-      @media (min-width: 769px) and (max-width: 1024px) {
-        .slide-container {
-          padding: 2rem !important;
-        }
-
-        h1 {
-          font-size: 2.5rem !important;
-        }
-
-        img {
-          max-width: 100% !important;
-          height: auto !important;
+          bottom: 24px;
+          padding: 14px 28px;
+          font-size: 14px;
+          left: 24px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="slide-container flex flex-col items-center justify-center p-16">
-      <div class="text-center mb-12">
-        <h1 class="text-7xl mb-6">Questions?</h1>
-        <p class="subtitle text-3xl mb-4">Thank you for your attention</p>
-      </div>
+    <div class="container">
+      <div class="hero">
+        <div class="content-wrapper">
+          <h1>Questions?</h1>
+          <p class="subtitle">Thank you for your attention</p>
 
-      <div class="flex justify-center items-center mb-12">
-        <div class="text-center">
-          <i class="fas fa-comments text-9xl mb-8 text-white opacity-80"></i>
+          <div class="icon-wrapper">
+            <div class="icon-circle">
+              <i class="fas fa-comments"></i>
+            </div>
+          </div>
+
+          <a href="https://www.figma.com/proto/jxdZlyGNMwUU3i85Ta9GdB/GoodGoodTime?page-id=1774%3A4374&node-id=2252-776&p=f&viewport=-1543%2C63%2C0.6&t=KjUOZU9QNXQBja33-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2252%3A2"
+             target="_blank"
+             class="cta-button">
+            <i class="fab fa-figma"></i>View Figma Prototype
+          </a>
+
+          <p class="thank-you">Let's discuss how Psycho Pro can transform mental health support in sports</p>
         </div>
       </div>
 
-      <div class="mt-8">
-        <a href="https://www.figma.com/proto/jxdZlyGNMwUU3i85Ta9GdB/GoodGoodTime?page-id=1774%3A4374&node-id=2252-776&p=f&viewport=-1543%2C63%2C0.6&t=KjUOZU9QNXQBja33-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2252%3A2"
-           target="_blank"
-           class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-xl hover:bg-gray-100 transition-colors shadow-lg">
-          <i class="fab fa-figma mr-2"></i>View Figma Prototype
-        </a>
-      </div>
-
+      <button class="nav-btn prev" onclick="window.location.href='slide10.html'">← Prev</button>
     </div>
-
-    <button class="nav-btn prev" onclick="window.location.href='slide10.html'">← Prev</button>
   </body>
 </html>

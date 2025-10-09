@@ -1,280 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slide 11 - PESTEL Analysis</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PESTEL Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
-      .slide-container {
-        max-width: 1280px;
-        min-height: 100vh;
-        margin: 0 auto;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         background: #ffffff;
-        color: #212121;
-        font-family: "Open Sans", sans-serif;
+        color: #111;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .container {
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
-        padding: 3rem;
+        position: relative;
       }
-      h1,
-      h2,
-      h3 {
-        font-family: "Montserrat", sans-serif;
+
+      .hero {
+        flex: 1;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        padding: 50px 48px 40px;
+        position: relative;
+      }
+
+      .content-wrapper {
+        max-width: 1440px;
+        width: 100%;
+        height: 100%;
+      }
+
+      .section-tag {
+        font-size: 14px;
         font-weight: 700;
-        color: #1e88e5;
-      }
-      .subtitle {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600;
-      }
-      .highlight {
-        color: #43a047;
-      }
-      .accent {
-        color: #ffc107;
-      }
-      .pestel-box {
-        border-left: 4px solid #1e88e5;
-        padding-left: 16px;
+        letter-spacing: 2px;
         margin-bottom: 20px;
-        background-color: #f8f9fa;
-        padding: 16px;
-        border-radius: 0 8px 8px 0;
+        text-transform: uppercase;
       }
-      .pestel-political {
-        border-left-color: #e53935;
+
+      h1 {
+        font-size: 56px;
+        font-weight: 900;
+        line-height: 0.95;
+        letter-spacing: -2px;
+        margin-bottom: 12px;
+        text-transform: uppercase;
       }
-      .pestel-economic {
-        border-left-color: #43a047;
+
+      .intro-text {
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 10px;
+        line-height: 1.3;
+        color: #333;
       }
-      .pestel-social {
-        border-left-color: #1e88e5;
+
+      .pestel-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
       }
-      .pestel-technological {
-        border-left-color: #8e24aa;
+
+      .insights-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
       }
-      .pestel-environmental {
-        border-left-color: #00897b;
+
+      .pestel-box {
+        background: #f5f5f5;
+        padding: 20px;
+        border-radius: 4px;
+        border-left: 4px solid #111;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        min-height: 80px;
       }
-      .pestel-legal {
-        border-left-color: #ffc107;
+
+      .pestel-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 0;
       }
+
+      .pestel-box:hover::before {
+        opacity: 0.15;
+      }
+
+      .pestel-box > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .pestel-box:nth-child(1)::before {
+        background-image: url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80');
+      }
+
+      .pestel-box:nth-child(2)::before {
+        background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80');
+      }
+
+      .pestel-box:nth-child(3)::before {
+        background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80');
+      }
+
+      .pestel-box:nth-child(4)::before {
+        background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80');
+      }
+
+      .pestel-box:nth-child(5)::before {
+        background-image: url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80');
+      }
+
+      .pestel-box:nth-child(6)::before {
+        background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80');
+      }
+
+      .pestel-box:hover {
+        background: #111;
+        transform: scale(1.08);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+      }
+
+      .pestel-box .pestel-title {
+        transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .pestel-box:hover .pestel-title {
+        color: #fff;
+      }
+
+      .pestel-box .pestel-icon {
+        transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .pestel-box:hover .pestel-icon:not(.icon-economic) {
+        filter: brightness(0) invert(1);
+      }
+
+      .pestel-box:hover .icon-economic {
+        background: #fff;
+      }
+
+      .pestel-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
       .pestel-icon {
-        font-size: 1.5rem;
-        margin-right: 8px;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        position: relative;
       }
-      img {
-        max-width: 100%;
-        height: auto;
+
+      /* Political - Flag */
+      .icon-political {
+        position: relative;
       }
+      .icon-political::before {
+        content: '';
+        position: absolute;
+        left: 4px;
+        top: 2px;
+        width: 2px;
+        height: 20px;
+        background: #111;
+      }
+      .icon-political::after {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 2px;
+        width: 14px;
+        height: 10px;
+        background: #111;
+        clip-path: polygon(0% 0%, 100% 0%, 85% 50%, 100% 100%, 0% 100%);
+      }
+
+      /* Economic - Dollar/Coins */
+      .icon-economic {
+        background: #111;
+        border-radius: 50%;
+        position: relative;
+        transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .icon-economic::before {
+        content: '$';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #f5f5f5;
+        font-size: 14px;
+        font-weight: 900;
+        transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .pestel-box:hover .icon-economic::before {
+        color: #111;
+      }
+
+      /* Social - Person silhouette */
+      .icon-social {
+        position: relative;
+      }
+      .icon-social::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 8px;
+        height: 8px;
+        background: #111;
+        border-radius: 50%;
+      }
+      .icon-social::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 14px;
+        height: 12px;
+        background: #111;
+        border-radius: 50% 50% 0 0;
+      }
+
+      /* Technological - Chip/Processor */
+      .icon-technological {
+        position: relative;
+      }
+      .icon-technological::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 12px;
+        height: 12px;
+        background: #111;
+        border: 2px solid #111;
+      }
+      .icon-technological::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        background:
+          linear-gradient(#111, #111) no-repeat 0 4px / 3px 2px,
+          linear-gradient(#111, #111) no-repeat 0 9px / 3px 2px,
+          linear-gradient(#111, #111) no-repeat 0 14px / 3px 2px,
+          linear-gradient(#111, #111) no-repeat 17px 4px / 3px 2px,
+          linear-gradient(#111, #111) no-repeat 17px 9px / 3px 2px,
+          linear-gradient(#111, #111) no-repeat 17px 14px / 3px 2px;
+      }
+
+      /* Environmental - Leaf */
+      .icon-environmental {
+        position: relative;
+      }
+      .icon-environmental::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 2px;
+        width: 18px;
+        height: 22px;
+        background: #111;
+        border-radius: 100% 0%;
+        transform: rotate(-25deg);
+      }
+      .icon-environmental::after {
+        content: '';
+        position: absolute;
+        top: 6px;
+        left: 8px;
+        width: 1px;
+        height: 12px;
+        background: #f5f5f5;
+        transform: rotate(-25deg);
+      }
+
+      /* Legal - Balance/Scale */
+      .icon-legal {
+        position: relative;
+      }
+      .icon-legal::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 24px;
+        height: 3px;
+        background: #111;
+      }
+      .icon-legal::after {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 18px;
+        background: #111;
+      }
+      .icon-legal {
+        background:
+          linear-gradient(135deg, transparent 50%, #111 50%) no-repeat 2px 11px / 7px 7px,
+          linear-gradient(-135deg, transparent 50%, #111 50%) no-repeat 6px 11px / 7px 7px,
+          linear-gradient(#111, #111) no-repeat 3px 18px / 5px 2px,
+          linear-gradient(135deg, transparent 50%, #111 50%) no-repeat 17px 11px / 7px 7px,
+          linear-gradient(-135deg, transparent 50%, #111 50%) no-repeat 21px 11px / 7px 7px,
+          linear-gradient(#111, #111) no-repeat 18px 18px / 5px 2px,
+          linear-gradient(#111, #111) no-repeat 8px 26px / 16px 3px;
+      }
+
+      .pestel-list {
+        list-style: none;
+        padding: 0;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                    margin-top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        margin-top: 0;
+      }
+
+      .pestel-box:hover .pestel-list {
+        max-height: 300px;
+        opacity: 1;
+        margin-top: 16px;
+      }
+
+      .pestel-list li {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        padding-left: 22px;
+        position: relative;
+        color: #333;
+        transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .pestel-box:hover .pestel-list li {
+        color: #fff;
+      }
+
+      .pestel-list li:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 7px;
+        width: 5px;
+        height: 5px;
+        background: #111;
+        border-radius: 50%;
+        transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .pestel-box:hover .pestel-list li:before {
+        background: #fff;
+      }
+
+      .pestel-list li strong {
+        color: #111;
+        font-weight: 700;
+        transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .pestel-box:hover .pestel-list li strong {
+        color: #fff;
+      }
+
+      .insight-item {
+        background: #2a2a2a;
+        color: #fff;
+        padding: 20px;
+        border-radius: 4px;
+        border-left: 4px solid #888;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        min-height: 80px;
+      }
+
+      .insight-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 0;
+      }
+
+      .insight-item:hover::before {
+        opacity: 0.2;
+      }
+
+      .insight-item > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .insight-item:nth-child(1)::before {
+        background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80');
+      }
+
+      .insight-item:nth-child(2)::before {
+        background-image: url('https://images.unsplash.com/photo-1483389127117-b6a2102724ae?w=800&q=80');
+      }
+
+      .insight-item:hover {
+        transform: scale(1.08);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+        z-index: 10;
+      }
+
+      .insight-item .insight-label {
+        transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .insight-label {
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .insight-icon {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+      }
+
+      /* Opportunities - Target/Bullseye */
+      .icon-opportunities {
+        position: relative;
+      }
+      .icon-opportunities::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        background: transparent;
+      }
+      .icon-opportunities::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        border-radius: 50%;
+      }
+
+      /* Challenges - Mountain (2 peaks) */
+      .icon-challenges {
+        position: relative;
+      }
+      .icon-challenges::before {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 3px;
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 14px solid #fff;
+      }
+      .icon-challenges::after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 12px solid #fff;
+      }
+
+      .insight-list {
+        list-style: none;
+        padding: 0;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                    margin-top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        margin-top: 0;
+      }
+
+      .insight-item:hover .insight-list {
+        max-height: 300px;
+        opacity: 1;
+        margin-top: 16px;
+      }
+
+      .insight-list li {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        padding-left: 22px;
+        position: relative;
+        color: #fff;
+        transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .insight-list li:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 7px;
+        width: 5px;
+        height: 5px;
+        background: #fff;
+        border-radius: 50%;
+        transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .insight-list li strong {
+        color: #fff;
+        font-weight: 700;
+        transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
       .nav-btn {
         position: fixed;
-        bottom: 20px;
-        background: #1e88e5;
-        color: white;
+        background: #111;
+        color: #fff;
         border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
+        padding: 18px 36px;
+        font-size: 16px;
+        font-weight: 700;
         cursor: pointer;
-        font-weight: bold;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        z-index: 100;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        bottom: 48px;
       }
+
       .nav-btn:hover {
-        background: #1565c0;
+        background: #333;
+        transform: scale(1.05);
       }
+
       .nav-btn.prev {
-        left: 20px;
+        left: 48px;
       }
+
       .nav-btn.next {
-        right: 20px;
+        right: 48px;
+      }
+
+      @media (max-width: 1024px) {
+        h1 {
+          font-size: 48px;
+        }
+
+        .hero {
+          padding: 60px 32px 60px;
+        }
+
+        .pestel-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          overflow-y: auto;
+        }
+
+        .insights-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 768px) {
-        .slide-container {
-          padding: 1rem !important;
-          min-height: 100vh;
-        }
-
         h1 {
-          font-size: 2rem !important;
+          font-size: 36px;
         }
 
-        h2 {
-          font-size: 1.5rem !important;
+        .intro-text {
+          font-size: 18px;
         }
 
-        .text-xl,
-        .text-2xl,
-        .text-3xl {
-          font-size: 1rem !important;
+        .pestel-title {
+          font-size: 18px;
         }
 
-        .flex-row {
-          flex-direction: column !important;
+        .pestel-list li {
+          font-size: 14px;
         }
 
-        .w-1\/2,
-        .w-3\/5,
-        .w-2\/5 {
-          width: 100% !important;
-        }
-
-        img {
-          max-width: 100% !important;
-          height: auto !important;
+        .hero {
+          padding: 40px 24px 60px;
         }
 
         .nav-btn {
-          padding: 8px 16px;
-          font-size: 0.875rem;
-        }
-      }
-
-      @media (min-width: 769px) and (max-width: 1024px) {
-        .slide-container {
-          padding: 2rem !important;
+          bottom: 24px;
+          padding: 14px 28px;
+          font-size: 14px;
         }
 
-        h1 {
-          font-size: 2.5rem !important;
+        .nav-btn.prev {
+          left: 24px;
         }
 
-        img {
-          max-width: 100% !important;
-          height: auto !important;
+        .nav-btn.next {
+          right: 24px;
+        }
+
+        .pestel-box {
+          padding: 24px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="slide-container p-12">
-      <h1 class="text-4xl mb-8 border-b-4 border-green-500 pb-2 inline-block">
-        PESTEL Analysis
-      </h1>
+    <div class="container">
+      <div class="hero">
+        <div class="content-wrapper">
+          <div class="section-tag">Analysis</div>
+          <h1>PESTEL Analysis</h1>
 
-      <p class="text-xl mb-6 text-gray-700">
-        External environmental analysis for Psycho Pro platform
-      </p>
+          <p class="intro-text">External environmental analysis for Psycho Pro platform</p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Political -->
-        <div class="pestel-box pestel-political">
-          <h2 class="text-xl mb-3">
-            <i class="fas fa-landmark pestel-icon" style="color: #e53935"></i
-            >Political
-          </h2>
-          <ul class="list-disc pl-6 space-y-2 text-base">
-            <li>Increased government focus on mental health initiatives</li>
-            <li>National sports federations promoting athlete wellbeing</li>
-          </ul>
-        </div>
+          <div class="pestel-grid">
+            <div class="pestel-box">
+              <h2 class="pestel-title">
+                <div class="pestel-icon icon-political"></div>
+                <span>Political</span>
+              </h2>
+              <ul class="pestel-list">
+                <li>Increased government focus on mental health initiatives</li>
+                <li>National sports federations promoting athlete wellbeing</li>
+              </ul>
+            </div>
 
-        <!-- Economic -->
-        <div class="pestel-box pestel-economic">
-          <h2 class="text-xl mb-3">
-            <i class="fas fa-chart-line pestel-icon" style="color: #43a047"></i
-            >Economic
-          </h2>
-          <ul class="list-disc pl-6 space-y-2 text-base">
-            <li>
-              Mental health apps market: <strong>$7B (2024) → $15.6B (2029)</strong>
-            </li>
-            <li>CAGR of 18.3% indicating strong growth potential</li>
-          </ul>
-        </div>
+            <div class="pestel-box">
+              <h2 class="pestel-title">
+                <div class="pestel-icon icon-economic"></div>
+                <span>Economic</span>
+              </h2>
+              <ul class="pestel-list">
+                <li>Mental health apps market: <strong>$7B (2024) → $15.6B (2029)</strong></li>
+                <li>CAGR of 18.3% indicating strong growth potential</li>
+              </ul>
+            </div>
 
-        <!-- Social -->
-        <div class="pestel-box pestel-social">
-          <h2 class="text-xl mb-3">
-            <i class="fas fa-users pestel-icon" style="color: #1e88e5"></i
-            >Social
-          </h2>
-          <ul class="list-disc pl-6 space-y-2 text-base">
-            <li>
-              Decreasing stigma around mental health, especially in sports
-            </li>
-            <li>Gen Z athletes (18-30) more open to digital health solutions</li>
-          </ul>
-        </div>
+            <div class="pestel-box">
+              <h2 class="pestel-title">
+                <div class="pestel-icon icon-social"></div>
+                <span>Social</span>
+              </h2>
+              <ul class="pestel-list">
+                <li>Decreasing stigma around mental health, especially in sports</li>
+                <li>Gen Z athletes (18-30) more open to digital health solutions</li>
+              </ul>
+            </div>
 
-        <!-- Technological -->
-        <div class="pestel-box pestel-technological">
-          <h2 class="text-xl mb-3">
-            <i class="fas fa-microchip pestel-icon" style="color: #8e24aa"></i
-            >Technological
-          </h2>
-          <ul class="list-disc pl-6 space-y-2 text-base">
-            <li>
-              AI integration for personalized mental health recommendations
-            </li>
-            <li>Smartphone penetration at 85%+ in target markets</li>
-          </ul>
-        </div>
+            <div class="pestel-box">
+              <h2 class="pestel-title">
+                <div class="pestel-icon icon-technological"></div>
+                <span>Technological</span>
+              </h2>
+              <ul class="pestel-list">
+                <li>AI integration for personalized mental health recommendations</li>
+                <li>Smartphone penetration at 85%+ in target markets</li>
+              </ul>
+            </div>
 
-        <!-- Environmental -->
-        <div class="pestel-box pestel-environmental">
-          <h2 class="text-xl mb-3">
-            <i class="fas fa-leaf pestel-icon" style="color: #00897b"></i
-            >Environmental
-          </h2>
-          <ul class="list-disc pl-6 space-y-2 text-base">
-            <li>
-              Digital-first approach reduces carbon footprint vs. in-person
-              consultations
-            </li>
-            <li>Green credentials attractive to environmentally conscious athletes</li>
-          </ul>
-        </div>
+            <div class="pestel-box">
+              <h2 class="pestel-title">
+                <div class="pestel-icon icon-environmental"></div>
+                <span>Environmental</span>
+              </h2>
+              <ul class="pestel-list">
+                <li>Digital-first approach reduces carbon footprint vs. in-person consultations</li>
+                <li>Green credentials attractive to environmentally conscious athletes</li>
+              </ul>
+            </div>
 
-        <!-- Legal -->
-        <div class="pestel-box pestel-legal">
-          <h2 class="text-xl mb-3">
-            <i class="fas fa-gavel pestel-icon" style="color: #ffc107"></i>Legal
-          </h2>
-          <ul class="list-disc pl-6 space-y-2 text-base">
-            <li><strong>GDPR compliance</strong> mandatory for EU operations</li>
-            <li>
-              Data privacy concerns as #1 barrier (identified in research)
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="mt-8 bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-        <h3 class="text-lg font-bold mb-2 text-blue-900">
-          <i class="fas fa-lightbulb mr-2"></i>Key Insights
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base">
-          <div>
-            <span class="font-bold highlight">Opportunities:</span> Strong market
-            growth, decreasing stigma, technological enablers
+            <div class="pestel-box">
+              <h2 class="pestel-title">
+                <div class="pestel-icon icon-legal"></div>
+                <span>Legal</span>
+              </h2>
+              <ul class="pestel-list">
+                <li><strong>GDPR compliance</strong> mandatory for EU operations</li>
+                <li>Data privacy concerns as #1 barrier (identified in research)</li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <span class="font-bold text-red-600">Challenges:</span> Data privacy
-            regulations, need for qualified professionals, stigma remains in male
-            sports
+
+          <div class="insights-row">
+            <div class="insight-item">
+              <h2 class="insight-label">
+                <div class="insight-icon icon-opportunities"></div>
+                <span>Opportunities</span>
+              </h2>
+              <ul class="insight-list">
+                <li>Strong market growth trajectory</li>
+                <li>Decreasing stigma around mental health</li>
+                <li>Technological enablers readily available</li>
+              </ul>
+            </div>
+
+            <div class="insight-item">
+              <h2 class="insight-label">
+                <div class="insight-icon icon-challenges"></div>
+                <span>Challenges</span>
+              </h2>
+              <ul class="insight-list">
+                <li>Data privacy regulations compliance</li>
+                <li>Need for qualified mental health professionals</li>
+                <li>Stigma remains in male-dominated sports</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+
+      <button class="nav-btn prev" onclick="window.location.href='slide7.html'">← Prev</button>
+      <button class="nav-btn next" onclick="window.location.href='slide9.html'">Next →</button>
     </div>
-
-    <button class="nav-btn prev" onclick="window.location.href='slide7.html'">
-      ← Prev
-    </button>
-    <button class="nav-btn next" onclick="window.location.href='slide9.html'">
-      Next →
-    </button>
   </body>
 </html>

@@ -1,265 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slide 5 - Qualitative Results</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualitative Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
-      .slide-container {
-        max-width: 1280px;
-        min-height: 100vh;
-        margin: 0 auto;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         background: #ffffff;
-        color: #212121;
-        font-family: "Open Sans", sans-serif;
+        color: #111;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      .container {
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
-        padding: 3rem;
+        position: relative;
       }
-      h1,
-      h2,
-      h3 {
-        font-family: "Montserrat", sans-serif;
+
+      .hero {
+        flex: 1;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        padding: 50px 48px 60px;
+        position: relative;
+      }
+
+      .content-wrapper {
+        max-width: 1440px;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      .text-content {
+        padding-right: 20px;
+      }
+
+      .section-tag {
+        font-size: 14px;
         font-weight: 700;
-        color: #1e88e5;
-      }
-      .subtitle {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 600;
-      }
-      .highlight {
-        color: #43a047;
-      }
-      .accent {
-        color: #ffc107;
-      }
-      .theme-box {
-        border-left: 4px solid #1e88e5;
-        padding-left: 16px;
+        letter-spacing: 2px;
         margin-bottom: 20px;
-        background-color: #f8f9fa;
-        padding: 16px;
-        border-radius: 0 8px 8px 0;
+        text-transform: uppercase;
       }
+
+      h1 {
+        font-size: 72px;
+        font-weight: 900;
+        line-height: 0.95;
+        letter-spacing: -2px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .intro-text {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 28px;
+        line-height: 1.3;
+      }
+
+      .theme-box {
+        background: #f5f5f5;
+        padding: 24px;
+        margin-bottom: 16px;
+        border-radius: 4px;
+      }
+
+      .section-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: -0.5px;
+      }
+
+      .theme-text {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+      }
+
       .quote {
+        font-size: 14px;
         font-style: italic;
-        color: #555;
-        border-left: 3px solid #ffc107;
-        padding-left: 12px;
-        margin-top: 8px;
+        color: #666;
+        border-left: 3px solid #111;
+        padding-left: 14px;
+        margin-top: 10px;
       }
-      .participant-card {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+      .profile-box {
+        background: #111;
+        color: #fff;
+        padding: 28px;
+        border-radius: 4px;
+        margin-top: 20px;
       }
-      .stat-item {
-        background: white;
-        border-radius: 8px;
-        padding: 12px;
+
+      .profile-title {
+        font-size: 24px;
+        font-weight: 700;
         text-align: center;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        margin-bottom: 24px;
+        text-transform: uppercase;
       }
-      img {
-        max-width: 100%;
-        height: auto;
+
+      .stat-item {
+        background: #fff;
+        color: #111;
+        border-radius: 4px;
+        padding: 20px;
+        margin-bottom: 16px;
+        text-align: center;
       }
+
+      .stat-value {
+        font-size: 28px;
+        font-weight: 900;
+        margin-bottom: 6px;
+      }
+
+      .stat-label {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
       .nav-btn {
         position: fixed;
-        bottom: 20px;
-        background: #1e88e5;
-        color: white;
+        background: #111;
+        color: #fff;
         border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
+        padding: 18px 36px;
+        font-size: 16px;
+        font-weight: 700;
         cursor: pointer;
-        font-weight: bold;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        z-index: 100;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        bottom: 48px;
       }
+
       .nav-btn:hover {
-        background: #1565c0;
+        background: #333;
+        transform: scale(1.05);
       }
+
       .nav-btn.prev {
-        left: 20px;
+        left: 48px;
       }
+
       .nav-btn.next {
-        right: 20px;
+        right: 48px;
+      }
+
+      @media (max-width: 1024px) {
+        .content-wrapper {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+
+        .text-content {
+          padding-right: 0;
+        }
+
+        h1 {
+          font-size: 48px;
+        }
+
+        .section-title {
+          font-size: 20px;
+        }
+
+        .hero {
+          padding: 60px 32px 60px;
+        }
       }
 
       @media (max-width: 768px) {
-        .slide-container {
-          padding: 1rem !important;
-          min-height: 100vh;
-        }
-
         h1 {
-          font-size: 2rem !important;
+          font-size: 36px;
         }
 
-        h2 {
-          font-size: 1.5rem !important;
+        .intro-text {
+          font-size: 18px;
         }
 
-        .text-xl,
-        .text-2xl,
-        .text-3xl {
-          font-size: 1rem !important;
+        .section-title {
+          font-size: 18px;
         }
 
-        .flex-row {
-          flex-direction: column !important;
+        .theme-text, .quote {
+          font-size: 14px;
         }
 
-        .w-1\/2,
-        .w-3\/5,
-        .w-2\/5 {
-          width: 100% !important;
-        }
-
-        img {
-          max-width: 100% !important;
-          height: auto !important;
+        .hero {
+          padding: 40px 24px 60px;
         }
 
         .nav-btn {
-          padding: 8px 16px;
-          font-size: 0.875rem;
-        }
-      }
-
-      @media (min-width: 769px) and (max-width: 1024px) {
-        .slide-container {
-          padding: 2rem !important;
+          bottom: 24px;
+          padding: 14px 28px;
+          font-size: 14px;
         }
 
-        h1 {
-          font-size: 2.5rem !important;
+        .nav-btn.prev {
+          left: 24px;
         }
 
-        img {
-          max-width: 100% !important;
-          height: auto !important;
+        .nav-btn.next {
+          right: 24px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="slide-container p-12">
-      <h1 class="text-4xl mb-8 border-b-4 border-green-500 pb-2 inline-block">
-        Qualitative Results
-      </h1>
+    <div class="container">
+      <div class="hero">
+        <div class="content-wrapper">
+          <div class="text-content">
+            <div class="section-tag">Results</div>
+            <h1>Qualitative Findings</h1>
 
-      <div class="flex flex-row gap-8 flex-1">
-        <div class="w-3/5">
-          <p class="text-xl mb-6">
-            Semi-structured interviews with
-            <span class="font-bold text-2xl highlight"
-              >10 amateur athletes</span
-            >
-            (18-30 years)
-          </p>
+            <p class="intro-text">Semi-structured interviews with <strong>10 amateur athletes</strong> (18-30 years)</p>
 
-          <div class="theme-box">
-            <h2 class="text-2xl mb-2">
-              <i class="fas fa-ban text-red-500 mr-2"></i>Stigma and denial
-            </h2>
-            <p class="text-lg">
-              Psychological support perceived as weakness, especially in male
-              sports.
-            </p>
-            <p class="quote text-base">
-              "I postponed help despite clear signs of stress and declining
-              performance."
-            </p>
-          </div>
+            <div class="theme-box">
+              <div class="section-title">Stigma and Denial</div>
+              <p class="theme-text">Psychological support perceived as weakness, especially in male sports.</p>
+              <p class="quote">"I postponed help despite clear signs of stress and declining performance."</p>
+            </div>
 
-          <div class="theme-box">
-            <h2 class="text-2xl mb-2">
-              <i class="fas fa-search text-yellow-500 mr-2"></i>Access and
-              availability
-            </h2>
-            <p class="text-lg">
-              Difficulty finding qualified, specialized sports psychologists.
-            </p>
-            <p class="quote text-base">
-              "Impossible to find a professional who truly understands my
-              discipline."
-            </p>
-          </div>
+            <div class="theme-box">
+              <div class="section-title">Access and Availability</div>
+              <p class="theme-text">Difficulty finding qualified, specialized sports psychologists.</p>
+              <p class="quote">"Impossible to find a professional who truly understands my discipline."</p>
+            </div>
 
-          <div class="theme-box">
-            <h2 class="text-2xl mb-2">
-              <i class="fas fa-barrier text-gray-600 mr-2"></i>Practical
-              barriers
-            </h2>
-            <p class="text-lg">
-              Lack of time, high cost, uncertainty about confidentiality.
-            </p>
-            <p class="quote text-base">
-              "I can't afford to consult regularly."
-            </p>
-          </div>
-        </div>
-
-        <div class="w-2/5 flex flex-col justify-center">
-          <div class="participant-card">
-            <h3 class="text-2xl mb-4 text-center text-gray-800">
-              Participant profile
-            </h3>
-
-            <div class="grid grid-cols-1 gap-4">
-              <div class="stat-item">
-                <i class="fas fa-users text-3xl text-blue-500 mb-2"></i>
-                <p class="font-bold text-lg">Gender</p>
-                <p class="text-2xl font-bold highlight">8 men • 2 women</p>
-              </div>
-
-              <div class="stat-item">
-                <i class="fas fa-running text-3xl text-green-500 mb-2"></i>
-                <p class="font-bold text-lg">Sport types</p>
-                <p class="text-lg">Individual and team sports</p>
-                <p class="text-sm text-gray-600">Regular intensive training</p>
-              </div>
-
-              <div class="stat-item">
-                <i
-                  class="fas fa-calendar-alt text-3xl text-yellow-500 mb-2"
-                ></i>
-                <p class="font-bold text-lg">Age range</p>
-                <p class="text-2xl font-bold highlight">18-30 years</p>
-                <p class="text-sm text-gray-600">Average age: 24 years</p>
-              </div>
+            <div class="theme-box">
+              <div class="section-title">Practical Barriers</div>
+              <p class="theme-text">Lack of time, high cost, uncertainty about confidentiality.</p>
+              <p class="quote">"I can't afford to consult regularly."</p>
             </div>
           </div>
 
-          <div class="mt-6 bg-blue-50 p-4 rounded-lg text-center">
-            <p class="text-sm text-gray-700">
-              <i class="fas fa-info-circle text-blue-500"></i>
-              All participants have practiced their sport for over 5 years
-            </p>
+          <div class="text-content">
+            <div class="profile-box">
+              <div class="profile-title">Participant Profile</div>
+
+              <div class="stat-item">
+                <div class="stat-value">8 Men • 2 Women</div>
+                <div class="stat-label">Gender</div>
+              </div>
+
+              <div class="stat-item">
+                <div class="stat-value">18-30 Years</div>
+                <div class="stat-label">Age Range</div>
+              </div>
+
+              <div class="stat-item">
+                <div class="stat-value">Individual & Team</div>
+                <div class="stat-label">Sport Types</div>
+              </div>
+
+              <div style="background: #fff; color: #111; padding: 14px; border-radius: 4px; margin-top: 16px; text-align: center; font-size: 13px;">
+                All participants have practiced their sport for over 5 years
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <button class="nav-btn prev" onclick="window.location.href='slide4.html'">
-      ← Prev
-    </button>
-    <button class="nav-btn next" onclick="window.location.href='slide6.html'">
-      Next →
-    </button>
+      <button class="nav-btn prev" onclick="window.location.href='slide4.html'">← Prev</button>
+      <button class="nav-btn next" onclick="window.location.href='slide6.html'">Next →</button>
+    </div>
   </body>
 </html>
